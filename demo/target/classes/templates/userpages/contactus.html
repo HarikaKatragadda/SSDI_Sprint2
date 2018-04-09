@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Starter Zone</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+</head>
+<style>
+.page-heading {
+
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header {
+
+    padding: 45px 0 20px 40px;
+
+}
+
+.menu {
+    
+    background: #3b7687;
+    padding: 6px 0 6px 40px;
+
+
+}
+.product-preview-container {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 250px;
+    margin: 10px ;
+    display: inline-block;
+    text-align:left;
+}
+ 
+.product-preview-container input {
+    width: 50px;
+}
+.product-image {
+    width: 120px;
+    height: 80px;
+}
+ 
+ul {
+    list-style-type: none;
+    padding-left: 5px;
+    margin:5px;
+}
+</style>
+<body>
+
+<!-- <div id="header"></div>
+<script>
+	    $("#header").load('header.htm');
+</script> -->
+    <div class="container">
+    <header class="header">
+        
+       <a class="link-title" href="/">Starter Zone</a>
+        
+    </header>
+    
+    <nav class="menu">
+        
+        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
+        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
+        <a th:href="@{'/userpages/contactus'}">Contact</a>
+        
+    </nav>
+<div id="form">
+          
+          <form method="post" action="process.php">
+              
+              <p>
+              <label for="name">Name:</label>
+              <input type="text" name="name" placeholder="Your Name" required>
+              
+              </p>
+              
+              <p>
+              <label for="name">Email:</label>
+              <input type="text" name="email" required>
+              
+              </p>
+              
+              <label for="name">Subject:</label>
+              <input type="text" name="subject" required>
+              
+              
+                  
+            <p> 
+            <label for="message"></label>
+            <textarea id="message" name="body" id="" cols="30" rows="10" required></textarea>
+              </p> 
+              
+              <p>
+                  <input id="submit" type="submit" name="submit" value="Send Message">
+              </p>
+              
+              
+              
+              
+          </form>
+           
+           
+           
+           
+           
+           
+           
+        </div>    
+       </div>
+</body>
+</html>

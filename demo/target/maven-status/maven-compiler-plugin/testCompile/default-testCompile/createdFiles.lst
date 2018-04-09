@@ -1,0 +1,13 @@
+com\example\test\service\UserServiceImplTest$1.class
+com\example\test\service\ProductServiceImplTest$1.class
+com\example\test\service\ProductServiceImplTest$2.class
+com\example\test\service\UserServiceImplTest$2.class
+com\example\DemoApplicationTests.class
+com\example\test\controller\LoginControllerTest.class
+com\example\test\model\UserTest.class
+com\example\test\model\ProductTest.class
+com\example\test\controller\LoginControllerTest$1.class
+com\example\test\service\ProductServiceImplTest.class
+com\example\test\model\RoleTest.class
+com\example\test\controller\AdminControllerTest.class
+com\example\test\service\UserServiceImplTest.class

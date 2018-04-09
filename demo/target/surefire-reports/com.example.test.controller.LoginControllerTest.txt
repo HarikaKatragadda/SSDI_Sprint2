@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: com.example.test.controller.LoginControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.351 sec <<< FAILURE! - in com.example.test.controller.LoginControllerTest
+testadminHome(com.example.test.controller.LoginControllerTest)  Time elapsed: 0.127 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:227)
+	at org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping.registerHandlers(StandaloneMockMvcBuilder.java:490)
+	at org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder.registerMvcSingletons(StandaloneMockMvcBuilder.java:356)
+	at org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder.initWebAppContext(StandaloneMockMvcBuilder.java:341)
+	at org.springframework.test.web.servlet.setup.AbstractMockMvcBuilder.build(AbstractMockMvcBuilder.java:139)
+	at com.example.test.controller.LoginControllerTest.init(LoginControllerTest.java:62)
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Starter Zone</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+</head>
+
+<style>
+.page-heading {
+
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header {
+
+    padding: 45px 0 20px 40px;
+
+}
+
+.menu {
+    
+    background: #3b7687;
+    padding: 6px 0 6px 40px;
+
+
+}
+.product-preview-container {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 250px;
+    margin: 10px ;
+    display: inline-block;
+    text-align:left;
+}
+ 
+.product-preview-container input {
+    width: 50px;
+}
+.product-image {
+    width: 120px;
+    height: 80px;
+}
+ 
+ul {
+    list-style-type: none;
+    padding-left: 5px;
+    margin:5px;
+}
+</style>
+<body>
+
+<!-- <div id="header"></div>
+<script>
+	    $("#header").load('header.htm');
+</script> -->
+    <div class="container">
+    <header class="header">
+        
+       <a class="link-title" href="/">Starter Zone</a>
+        
+    </header>
+    
+    <nav class="menu">
+        
+        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
+        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
+        <a th:href="@{'/userpages/contactus'}">Contact</a>
+        
+    </nav>
+   
+<h1>Product List</h1>
+
+<div th:each="product : ${listProducts}">
+ <div class="row">
+    <div class="col-md-4">
+<div class="product-preview-container">
+<ul>
+<li><img class="product-image"
+th:src="${product.image}" /></li>
+                   
+<li th:text="${product.productName}">${product.productName}</li>
+<li th:text="${product.code}">${product.code}</li>
+<li th:text="${product.price}">${product.code}</li>
+<li th:text="${product.seller}">${product.code}</li>
+<li th:text="${product.desc}">${product.desc}</li>
+
+<!--  Needs to be modified  -->
+<li><a th:href="@{'/userpages/buyProduct?productId=' + ${product.productId}}">Buy Now</a></li>
+
+</ul>
+</div>
+</div>
+</div>
+  </div>      
+</div>      
+</body>
+</html>

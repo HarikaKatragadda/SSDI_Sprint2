@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.test.service.ProductServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.107 sec <<< FAILURE! - in com.example.test.service.ProductServiceImplTest
+testsaveOrUpdate(com.example.test.service.ProductServiceImplTest)  Time elapsed: 0.012 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.example.test.service.ProductServiceImplTest.testsaveOrUpdate(ProductServiceImplTest.java:63)
+

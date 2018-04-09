@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Admin Page</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+.product-image {
+    width: 120px;
+    height: 80px;
+}
+</style>
+<body>
+	<div class="container">
+	
+		<form th:action="@{/logout}" method="get">
+			<button class="btn btn-md btn-danger btn-block" name="registration"
+				type="Submit">Logout</button>
+		</form>    
+		
+		<div class="panel-group" style="margin-top:40px">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span th:utext="${userName}"></span>
+				</div>
+				<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+		<div align="center">
+            <h1>Product List</h1>
+            <table border="1">
+<tr>
+<th>Product ID</th>
+<th>Name</th>
+<th>Code</th>
+<th>Price</th>
+<th>Seller</th>
+<th>Image</th>
+<th>Action</th>
+</tr>
+<tr th:each="product : ${listProducts}">
+<td th:text="${product.productId}">productId</td>
+<td th:text="${product.productName}">productName</td>
+<td th:text="${product.code}">code</td>
+<td th:text="${product.price}">price</td>
+<td th:text="${product.seller}">seller</td>
+<td> <img class="product-image" th:src="${product.image}"></td> 
+<td ><a th:href="@{'/admin/editproduct?productId=' + ${product.productId}}">Edit</a>
+<span>|</span>	
+<a th:href="@{'/admin/deleteproduct?productId=' + ${product.productId}}">Delete</a>
+</td>
+</tr>
+</table><br><br>	
+        </div>
+				
+ 		<form th:action="@{/admin/addproduct}" method="get">
+		<button class="btn btn-md btn-danger btn-block" name="ADD PRODUCT"
+				type="Submit">Add Product</button>
+		</form>  
+
+		</div>
+		
+	</div>
+</body>
+</html>
