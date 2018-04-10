@@ -59,15 +59,15 @@ public class AdminControllerTest {
 	}
 	@Test
 	public void testadminHome() {
-		admin_Controller.registration();
+//		admin_Controller.registration();
 		
 		new Expectations() {{
-			userService.saveUser(test_building);
+			//		userService.saveUser(test_building);
 		 }};
 		 try {
 			  mock_mvc.perform(get("/registration")
 			 .contentType(MediaType.APPLICATION_JSON)
-			 .content(obj_mapper.writeValueAsString(productService)))
+			 .content(obj_mapper.writeValueAsString(userService)))
 			  .andExpect(status().isOk());
 			  } catch (Exception e) {
 			  e.printStackTrace();

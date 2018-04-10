@@ -23,4 +23,25 @@ public class ProductTest{
 		test_product.setProductName("laptop");
 	assertEquals("laptop",test_product.getProductName());
 	}
+	@Test
+	public void testCode() {
+		
+		test_product = new Product();
+		test_product.setCode("CODE123");
+	assertEquals("CODE123",test_product.getCode());
+	}
+	@Test
+	public void testSeller() {
+		
+		test_product = new Product();
+		test_product.setSeller("HP");
+	assertEquals("HP",test_product.getSeller());
+	}
+	@Test
+	public void testImage() {
+		
+		test_product = new Product();
+		test_product.setImage("https://HP");
+	assertEquals("https://HP",test_product.getImage());
+	}
 }

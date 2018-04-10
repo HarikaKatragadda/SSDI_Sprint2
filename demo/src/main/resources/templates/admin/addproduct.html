@@ -16,9 +16,7 @@
 	$(document)
 			.ready(
 					function() {
-
 						$('.submit_action').hide();
-
 						var downloadURL = '';
 						console.log($(".imgData"));
 						var config = {
@@ -83,11 +81,9 @@
 																case 'storage/unauthorized':
 																	// User doesn't have permission to access the object
 																	break;
-
 																case 'storage/canceled':
 																	// User canceled the upload
 																	break;
-
 																case 'storage/unknown':
 																	// Unknown error occurred, inspect error.serverResponse
 																	break;
@@ -179,16 +175,17 @@
 						type="file" name="img" class="imgData"><br /> <br />
 					<button class="uploadButton" value="Upload Image">Add
 						Product</button>
-				</div>
-			</div>
-
-			<div class="col-sm-9">
-				<div class="btn btn-primary btn-block">
 					<button type="submit" class="submit_action">Submit</button>
 				</div>
 			</div>
+<!-- 
+ 			<div class="col-sm-9">
+				<div class="btn btn-primary btn-block">
+					<button type="submit" class="submit_action">Submit</button>
+				</div>
+			</div>  -->
 	</div>
-	<span th:utext="${successMessage}"></span>
+<!-- 	<span th:utext="${successMessage}"></span> -->
 
 	</form>
 

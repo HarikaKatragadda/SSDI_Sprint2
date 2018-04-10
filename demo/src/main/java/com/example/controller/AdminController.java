@@ -46,7 +46,8 @@ public class AdminController {
 			modelAndView.setViewName("/admin/addproduct");
 			
 		}
-		return modelAndView;
+		 return new ModelAndView("redirect:/admin/home");
+		//return modelAndView;
 	}
 	
 	@RequestMapping(value="/admin/editproduct", method = RequestMethod.GET)
@@ -55,6 +56,7 @@ public class AdminController {
 	     Product product= productService.getProduct(productId);
 	     ModelAndView model = new ModelAndView("/admin/addproduct");
 	     model.addObject("product", product);
+	   //  System.out.println("Image is "+product.getImage());
 	   //  model.addObject("product", "Welcome " + product.getSeller()); 
 	     return model;
 	    

@@ -101,6 +101,7 @@ public class ProductServiceImpl implements ProductService{
 	                product.setCode(rs.getString("code"));
 	                product.setPrice(rs.getInt("price"));
 	                product.setSeller(rs.getString("seller"));
+	                product.setDesc(rs.getString("description"));
 	                product.setImage(rs.getString("image"));
 	                return product;
 	            }
