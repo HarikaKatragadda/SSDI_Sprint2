@@ -1,7 +1,5 @@
 package com.example.test.controller;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,10 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.example.controller.AdminController;
+import com.example.controller.UserController;
 import com.example.service.ProductService;
 import com.example.model.Product;
 
 import mockit.integration.junit4.JMockit;
+
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -30,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(JMockit.class)
 @SpringBootTest
-public class AdminControllerTest {
+public class UserControllerTest {
 
 	private MockMvc mockMvc;
 	
@@ -38,40 +39,28 @@ public class AdminControllerTest {
     private ProductService productServiceMock;
 
     @InjectMocks
-    private AdminController adminController;
+    private UserController userController;
 	
     @Before
     public void init(){
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders
-                .standaloneSetup(adminController)
+                .standaloneSetup(userController)
                 .build();
     }
-    
-	@Test
-    public void addProductPage() throws Exception{
-		ModelAndView mv = adminController.addProduct();
-		assertEquals("/admin/addproduct", mv.getViewName());
+    @Test
+	public void testuserproducts(){
+		ModelAndView mv = userController.userproducts();
+		assertEquals("/userpages/userview", mv.getViewName());
     }
-	
-	@Test
-	public void editProductPage() throws Exception{
-		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34));
-        mockMvc.perform(get("/admin/editproduct").param("productId", "25"))
-	        .andExpect(status().isOk())
-	        .andExpect(view().name("/admin/addproduct"))
-	        .andExpect(model().attributeExists("product"))
-	        .andReturn();
-	}
-	@Test
-	public void deleteProductPage() throws Exception{
-		when(productServiceMock.delete(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34));
-        mockMvc.perform(get("/admin/deleteproduct").param("productId", "25"))
-	        .andExpect(status().isOk())
-	        .andExpect(view().name("/admin/deleteproduct"))
-	        .andExpect(model().attributeExists("product"))
-	        .andReturn();
-	}
-	
+/*    @Test
+   	public void testabout(){
+   		ModelAndView mv = userController.about();
+   		assertEquals("/userpages/about", mv.getViewName());
+       }
+    @Test
+   	public void testcontact(){
+   		ModelAndView mv = userController.contact();
+   		assertEquals("/userpages/contact", mv.getViewName());
+       }*/
 }
-	

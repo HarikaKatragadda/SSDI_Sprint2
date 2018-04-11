@@ -19,7 +19,8 @@ public class UserController {
 	
 	@RequestMapping(value="/userpages/userview", method = RequestMethod.GET)
 	public ModelAndView userproducts(){
-		ModelAndView modelAndView = new ModelAndView();
+		ModelAndView modelAndView=null;
+		 modelAndView = new ModelAndView("/userpages/userview");
 		List<Product> listProducts = productService.listProducts();
 		modelAndView.addObject("listProducts" , listProducts);
 		modelAndView.setViewName("/userpages/userview");
@@ -27,7 +28,8 @@ public class UserController {
 	}
 	@RequestMapping(value="/userpages/about", method = RequestMethod.GET)
 	public ModelAndView about(){
-		ModelAndView modelAndView = new ModelAndView();
+		ModelAndView modelAndView=null;
+		 modelAndView = new ModelAndView("/userpages/about");
 		modelAndView.setViewName("/userpages/about");
 		//return modelAndView;
 		return new ModelAndView();

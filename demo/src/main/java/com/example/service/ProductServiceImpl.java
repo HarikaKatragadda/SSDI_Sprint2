@@ -54,21 +54,22 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	@Transactional
-	public void saveOrUpdate(Product product){	
+	public int saveOrUpdate(Product product){
+		int i=0;
 		if (product.getProductId() > 0) {
 	        // update
 	        String sql = "UPDATE product SET productname=?, code=?, price=?, "
 	                    + "seller=?,description=?, image=? WHERE product_id=?";
-	        jdbcTemplate.update(sql, product.getProductName(), product.getCode(),
-	        		product.getPrice(), product.getSeller(),product.getDesc(), product.getProductId(), product.getImage());
+	       i= jdbcTemplate.update(sql, product.getProductName(), product.getCode(),
+	        		product.getPrice(), product.getSeller(),product.getDesc(),product.getImage(), product.getProductId() );
 	    } else {
 	        // insert
 	        String sql = "INSERT INTO product (productname, code, price, seller,description, image)"
-	                    + " VALUES (?, ?, ?, ?,?,?,?)";
-	        jdbcTemplate.update(sql,product.getProductName(), product.getCode(),
-	        		product.getPrice(), product.getSeller(),product.getDesc(), product.getProductId(), product.getImage());
+	                    + " VALUES (?, ?, ?,?,?,?)";
+	       i = jdbcTemplate.update(sql,product.getProductName(), product.getCode(),
+	        		product.getPrice(), product.getSeller(),product.getDesc(), product.getImage());
 	    }
-	 	
+	 	return i;
 	}
 	@Override
 	@Transactional
@@ -88,7 +89,6 @@ public class ProductServiceImpl implements ProductService{
 	@Transactional
     public Product getProduct(int productId) {
 		String sql = "SELECT * FROM Product WHERE product_id=" + productId;
-		System.out.println("sql query is"+sql);
 	    return jdbcTemplate.query(sql, new ResultSetExtractor<Product>() {
 	 
 	        @Override

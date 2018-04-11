@@ -70,12 +70,16 @@ ul {
     </nav>
    
 <h1>Product List</h1>
-
+<div class="row">
 <div th:each="product : ${listProducts}">
- <div class="row">
-    <div class="col-md-4">
+  <div class="col-lg-6">
+              <div class="thumbnail">
 <div class="product-preview-container">
 <ul>
+</div>
+</div>
+<div class="col-lg-6">
+                <div class="thumbnail">
 <li><img class="product-image"
 th:src="${product.image}" /></li>
                    

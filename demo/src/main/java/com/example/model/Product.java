@@ -26,6 +26,17 @@ public class Product {
 	private String desc;
 	@Column(name="image")
 	private String image;
+	public Product(int productId, String productName, String seller, String code, String desc, String image,
+			float price) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.seller = seller;
+		this.code = code;
+		this.desc = desc;
+		this.image = image;
+		this.price = price;
+	}
 	public String getImage() {
 		return image;
 	}
