@@ -51,9 +51,10 @@ public class UserControllerTest {
     @Test
 	public void testuserproducts(){
 		ModelAndView mv = userController.userproducts();
+		
 		assertEquals("/userpages/userview", mv.getViewName());
     }
-/*    @Test
+   @Test
    	public void testabout(){
    		ModelAndView mv = userController.about();
    		assertEquals("/userpages/about", mv.getViewName());
@@ -61,6 +62,6 @@ public class UserControllerTest {
     @Test
    	public void testcontact(){
    		ModelAndView mv = userController.contact();
-   		assertEquals("/userpages/contact", mv.getViewName());
-       }*/
+   		assertEquals("/userpages/contactus", mv.getViewName());
+       }
 }

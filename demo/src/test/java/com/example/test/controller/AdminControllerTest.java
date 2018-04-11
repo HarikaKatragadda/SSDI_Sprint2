@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -65,10 +66,21 @@ public class AdminControllerTest {
 	}
 	@Test
 	public void deleteProductPage() throws Exception{
-		when(productServiceMock.delete(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34));
+		when(productServiceMock.delete(25)).thenReturn(void.class);
         mockMvc.perform(get("/admin/deleteproduct").param("productId", "25"))
 	        .andExpect(status().isOk())
 	        .andExpect(view().name("/admin/deleteproduct"))
+	        .andExpect(model().attributeExists("product"))
+	        .andReturn();
+	}
+
+	@Test
+	public void saveProductPage() throws Exception{
+		Product product = new Product();
+		when(productServiceMock.saveOrUpdate(product)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34));
+        mockMvc.perform(get("/saveProduct").param("productId", "25","productName","Shoe"))
+	        .andExpect(status().isOk())
+	        .andExpect(view().name("/saveProduct"))
 	        .andExpect(model().attributeExists("product"))
 	        .andReturn();
 	}

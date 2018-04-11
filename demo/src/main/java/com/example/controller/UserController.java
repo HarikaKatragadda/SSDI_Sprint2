@@ -31,14 +31,14 @@ public class UserController {
 		ModelAndView modelAndView=null;
 		 modelAndView = new ModelAndView("/userpages/about");
 		modelAndView.setViewName("/userpages/about");
-		//return modelAndView;
-		return new ModelAndView();
+		return modelAndView;
+		//return new ModelAndView();
 	}
 	@RequestMapping(value="/userpages/contactus", method = RequestMethod.GET)
 	public ModelAndView contact(){
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/userpages/contactus");
-		//return modelAndView;
-		return new ModelAndView();
+		return modelAndView;
+		//return new ModelAndView();
 	}
 }

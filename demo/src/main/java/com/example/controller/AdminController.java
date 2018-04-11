@@ -37,7 +37,6 @@ public class AdminController {
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("/admin/addproduct");
 		} else {
-//			product.setImage(request.getParameter("imgURL"));
 			product.setImage(request.getParameter("imgURL"));
 			System.out.println("Image is "+product.getImage());
 			productService.addProduct(product);
