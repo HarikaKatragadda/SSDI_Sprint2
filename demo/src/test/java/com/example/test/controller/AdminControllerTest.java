@@ -15,7 +15,7 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.example.controller.AdminController;
 import com.example.service.ProductService;
@@ -56,8 +56,12 @@ public class AdminControllerTest {
     @Before
     public void init(){
         MockitoAnnotations.initMocks(this);
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix("/resources/templates/");
+        viewResolver.setSuffix(".html");
         mockMvc = MockMvcBuilders
                 .standaloneSetup(adminController)
+                .setViewResolvers(viewResolver)
                 .build();
     }
     
@@ -68,7 +72,7 @@ public class AdminControllerTest {
     }
 	@Test
 	public void testcreateNewProduct() throws Exception{
-		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34));
+		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34.0f));
         mockMvc.perform(get("/admin/addproduct").param("image", "feg"))
 	        .andExpect(status().isOk())
 	        .andExpect(view().name("/admin/addproduct"))
@@ -77,7 +81,7 @@ public class AdminControllerTest {
 	}
 	@Test
 	public void editProductPage() throws Exception{
-		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34));
+		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34.0f));
         mockMvc.perform(get("/admin/editproduct").param("productId", "25"))
 	        .andExpect(status().isOk())
 	        .andExpect(view().name("/admin/addproduct"))
@@ -89,7 +93,7 @@ public class AdminControllerTest {
 		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34));
 		//productServiceMock.delete(25);
         mockMvc.perform(get("/admin/deleteproduct").param("productId", "25"))
-	        .andExpect(status().isOk())
+	        .andExpect(status().is3xxRedirection())
 	        .andExpect(view().name("redirect:/admin/home"))
 	        .andExpect(model().attributeDoesNotExist("product"))
 	        .andReturn();
@@ -102,10 +106,9 @@ public class AdminControllerTest {
 	}
 	@Test
 	public void saveProductPage() throws Exception{
-		Product p1 = new Product(25, "Shoe","sfe","ewf","fewf","feg",34);
+		Product p1 = new Product(25, "Shoe","sfe","ewf","fewf","feg",34.0f);
 		ModelAndView mv = adminController.saveProduct(p1);
 		assertEquals("redirect:/", mv.getViewName());
 	}
 	
 }
-	
