@@ -70,15 +70,7 @@ public class AdminControllerTest {
 		ModelAndView mv = adminController.addProduct();
 		assertEquals("/admin/addproduct", mv.getViewName());
     }
-	@Test
-	public void testcreateNewProduct() throws Exception{
-		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34.0f));
-        mockMvc.perform(get("/admin/addproduct").param("image", "feg"))
-	        .andExpect(status().isOk())
-	        .andExpect(view().name("/admin/addproduct"))
-	        .andExpect(model().attributeExists("product"))
-	        .andReturn();
-	}
+
 	@Test
 	public void editProductPage() throws Exception{
 		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34.0f));
@@ -91,7 +83,7 @@ public class AdminControllerTest {
 	@Test
 	public void deleteProductPage() throws Exception{
 		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34));
-		//productServiceMock.delete(25);
+		productServiceMock.delete(25);
         mockMvc.perform(get("/admin/deleteproduct").param("productId", "25"))
 	        .andExpect(status().is3xxRedirection())
 	        .andExpect(view().name("redirect:/admin/home"))
@@ -109,6 +101,15 @@ public class AdminControllerTest {
 		Product p1 = new Product(25, "Shoe","sfe","ewf","fewf","feg",34.0f);
 		ModelAndView mv = adminController.saveProduct(p1);
 		assertEquals("redirect:/", mv.getViewName());
+	}
+	@Test
+	public void testcreateNewProduct() throws Exception{
+		when(productServiceMock.getProduct(25)).thenReturn(new Product(25, "Shoe","sfe","ewf","fewf","feg",34.0f));
+        mockMvc.perform(get("/admin/addproduct").param("image", "feg"))
+	        .andExpect(status().isOk())
+	        .andExpect(view().name("/admin/addproduct"))
+	        .andExpect(model().attributeExists("product"))
+	        .andReturn();
 	}
 	
 }

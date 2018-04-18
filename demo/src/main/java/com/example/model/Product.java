@@ -46,6 +46,9 @@ public class Product {
 	public Product(){}
 
 	
+	public Product(Product find, int i) {
+		// TODO Auto-generated constructor stub
+	}
 	public String getDesc() {
 		return desc;
 	}

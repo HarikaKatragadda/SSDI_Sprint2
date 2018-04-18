@@ -5,7 +5,7 @@
  
 <title>Shopping Cart</title>
  
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
  
 </head>
 <body>
@@ -15,26 +15,25 @@
    <c:if test="${empty cartForm or empty cartForm.cartLines}">
        <h2>There is no items in Cart</h2>
        <a href="${pageContext.request.contextPath}/productList">Show
-           P
-           roduct List</a>
+           Product List</a>
    </c:if>
  
    <c:if test="${not empty cartForm and not empty cartForm.cartLines   }">
        <form:form method="POST" modelAttribute="cartForm"
            action="${pageContext.request.contextPath}/shoppingCart">
  
-           <c:forEach items="${cartForm.cartLines}" var="cartLineInfo"
-               varStatus="varStatus">
+<!--            <c:forEach items="${cartForm.cartLines}" var="cartLineInfo" -->
+<!--                varStatus="varStatus"> -->
+<div th:each="product : ${listProducts}" style="width: 33%;float: left;">
                <div class="product-preview-container">
                    <ul>
-                       <li><img class="product-image"
-                           src="${pageContext.request.contextPath}/productImage?code=${cartLineInfo.productInfo.code}" />
-                       </li>
-                       <li>Code: ${cartLineInfo.productInfo.code} <form:hidden
-                               path="cartLines[${varStatus.index}].productInfo.code" />
- 
-                       </li>
-                       <li>Name: ${cartLineInfo.productInfo.name}</li>
+                       <li><img class="product-image" th:src="${product.image}" /></li>
+                   
+<h3><li th:text="${product.productName}">${product.productName}</li></h3>
+<li th:text="${product.code}">${product.code}</li>
+<li th:text="${product.price}">${product.code}</li>
+<li th:text="${product.seller}">${product.code}</li>
+<li th:text="${product.desc}">${product.desc}</li>
                        <li>Price: <span class="price">
                       
                          <fmt:formatNumber value="${cartLineInfo.productInfo.price}" type="currency"/>

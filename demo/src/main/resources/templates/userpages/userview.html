@@ -4,7 +4,8 @@
 
 <head>
 	<title>Starter Zone</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -83,7 +84,7 @@ th:src="${product.image}" /></li>
 <li th:text="${product.desc}">${product.desc}</li>
 
 <!--  Needs to be modified  -->
-<li><a href="${pageContext.request.contextPath}/buyProduct?code=${prodInfo.code}">Buy Now</a></li>
+<li><a th:href="@{'/userpages/shoppingCart?productId=' + ${product.productId}}">Buy Now</a></li>
 </ul>
 </div>
 </div>

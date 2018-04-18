@@ -51,7 +51,11 @@ public class ProductServiceImpl implements ProductService{
 		productRepository.save(product);
 		
 	}
-
+	public Product find(int productId){
+		System.out.println("in servc");
+		return productRepository.findByproductId(productId);
+		
+	}
 	@Override
 	@Transactional
 	public int saveOrUpdate(Product product){

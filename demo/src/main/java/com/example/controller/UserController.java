@@ -1,6 +1,9 @@
 package com.example.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.model.Item;
 import com.example.model.Product;
 import com.example.model.User;
 import com.example.service.ProductService;
@@ -41,4 +45,17 @@ public class UserController {
 		return modelAndView;
 		//return new ModelAndView();
 	}
+	@RequestMapping(value="/userpages/shoppingCart", method = RequestMethod.GET)
+	public ModelAndView myCart(HttpServletRequest request,HttpSession session){
+		ModelAndView modelAndView = new ModelAndView();
+		  //Product product = null;
+		int productId = Integer.parseInt(request.getParameter("productId"));
+		 if (session.getAttribute("cart") == null) {
+			   List<Item> cart = new ArrayList<Item>();
+			   cart.add(new Item(this.productService.find(productId), 1));
+			   session.setAttribute("cart", cart);
+			  }
+		return modelAndView; 
+	}
+
 }

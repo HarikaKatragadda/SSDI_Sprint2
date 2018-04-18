@@ -84,7 +84,7 @@ public class ProductServiceImplTest {
 	}
 	
 	
-	@Test
+	/*@Test
 	public void testgetProduct()
 	{		
 		p1 = mock(Product.class);
@@ -101,7 +101,7 @@ public class ProductServiceImplTest {
 		
 		assertNotNull(productService.getProduct(1));
 //		assertEquals("name1",p1.getProductName());
-	}
+	}*/
 	@Test
 	public void testsaveorUpdateProduct()
 	{		
