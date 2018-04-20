@@ -47,14 +47,13 @@ public class ProductServiceImpl implements ProductService{
 	    //private EntityManager entityManager;
 
 	public void addProduct(Product product){
-		System.out.println("in servc");
+	//	System.out.println("in servc");
 		productRepository.save(product);
 		
 	}
 	public Product find(int productId){
-		System.out.println("in servc");
+		System.out.println("in servc");		
 		return productRepository.findByproductId(productId);
-		
 	}
 	@Override
 	@Transactional

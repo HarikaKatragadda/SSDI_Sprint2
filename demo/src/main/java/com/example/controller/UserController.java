@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -45,6 +46,7 @@ public class UserController {
 		return modelAndView;
 		//return new ModelAndView();
 	}
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/userpages/shoppingCart", method = RequestMethod.GET)
 	public ModelAndView myCart(HttpServletRequest request,HttpSession session){
 		ModelAndView modelAndView = new ModelAndView();
@@ -53,8 +55,17 @@ public class UserController {
 		 if (session.getAttribute("cart") == null) {
 			   List<Item> cart = new ArrayList<Item>();
 			   cart.add(new Item(this.productService.find(productId), 1));
-			   session.setAttribute("cart", cart);
+			   //Iterator it= cart.iterator();
+			   //System.out.println(it.next());
+			  session.setAttribute("cart", cart);
 			  }
+		 else
+		 {
+			 List<Item> cart = (List<Item>)session.getAttribute("cart");
+			 cart.add(new Item(this.productService.find(productId), 1));
+			   session.setAttribute("cart", cart);
+		 }
+			//	 modelAndView.addObject(cart);
 		return modelAndView; 
 	}
 

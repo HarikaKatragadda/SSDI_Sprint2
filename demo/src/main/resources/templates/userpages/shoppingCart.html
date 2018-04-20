@@ -18,54 +18,22 @@
            Product List</a>
    </c:if>
  
-   <c:if test="${not empty cartForm and not empty cartForm.cartLines   }">
-       <form:form method="POST" modelAttribute="cartForm"
-           action="${pageContext.request.contextPath}/shoppingCart">
- 
-<!--            <c:forEach items="${cartForm.cartLines}" var="cartLineInfo" -->
-<!--                varStatus="varStatus"> -->
-<div th:each="product : ${listProducts}" style="width: 33%;float: left;">
+<div th:each="cart : ${sessionScope}" style="width: 33%;float: left;">
                <div class="product-preview-container">
                    <ul>
-                       <li><img class="product-image" th:src="${product.image}" /></li>
+                       <li><img class="product-image" th:src="${cart.image}" /></li>
                    
-<h3><li th:text="${product.productName}">${product.productName}</li></h3>
-<li th:text="${product.code}">${product.code}</li>
-<li th:text="${product.price}">${product.code}</li>
-<li th:text="${product.seller}">${product.code}</li>
-<li th:text="${product.desc}">${product.desc}</li>
-                       <li>Price: <span class="price">
-                      
-                         <fmt:formatNumber value="${cartLineInfo.productInfo.price}" type="currency"/>
-                        
-                       </span></li>
-                       <li>Quantity: <form:input
-                               path="cartLines[${varStatus.index}].quantity" /></li>
-                       <li>Subtotal:
-                         <span class="subtotal">
-                        
-                            <fmt:formatNumber value="${cartLineInfo.amount}" type="currency"/>
-                      
-                         </span>
-                       </li>
-                       <li><a
-                           href="${pageContext.request.contextPath}/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}">
-                               Delete </a></li>
-                   </ul>
-               </div>
-           </c:forEach>
-           <div style="clear: both"></div>
-           <input class="button-update-sc" type="submit" value="Update Quantity" />
-           <a class="navi-item"
-               href="${pageContext.request.contextPath}/shoppingCartCustomer">Enter
-               Customer Info</a>
-           <a class="navi-item"
-               href="${pageContext.request.contextPath}/productList">Continue
-               Buy</a>
-       </form:form>
+<h3><li th:text="${cart.productName}">${cart.productName}</li></h3>
+<li th:text="${cart.code}">${cart.code}</li>
+<li th:text="${cart.price}">${cart.code}</li>
+<li th:text="${cart.seller}">${cart.code}</li>
+<li th:text="${cart.desc}">${cart.desc}</li>
+<li th:text="${cart.quantity}">${cart.quantity}</li>
+<li th:text="${product.price * product.quantity}">${product.price * product.quantity}</li>
+</ul>
+</div>
  
- 
-   </c:if>
+</div>
  
  
 </body>
