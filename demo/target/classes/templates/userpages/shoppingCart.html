@@ -1,22 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
- 
-<title>Shopping Cart</title>
- 
-<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
- 
+	<title>Starter Zone</title>
+	
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 </head>
+
+<style>
+.page-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.header {
+    padding: 45px 0 20px 40px;
+}
+.menu {
+    
+    background: #3b7687;
+    padding: 6px 0 6px 40px;
+}
+.product-preview-container {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 250px;
+    margin: 10px ;
+    display: inline-block;
+    text-align:left;
+}
+ 
+.product-preview-container input {
+    width: 50px;
+}
+.product-image {
+    width: 120px;
+    height: 80px;
+}
+ 
+ul {
+    list-style-type: none;
+    padding-left: 5px;
+    margin:5px;
+}
+</style>
 <body>
- 
-   <div class="page-title">My Cart</div>
- 
-   <c:if test="${empty cartForm or empty cartForm.cartLines}">
+
+<!-- <div id="header"></div>
+<script>
+	    $("#header").load('header.htm');
+</script> -->
+    <div class="container">
+    <header class="header">
+        
+       <a href="about.html">Starter Zone</a>
+        
+    </header>
+    
+    <nav class="menu">
+        
+        <a href="userview.html">Home</a> &nbsp; &nbsp; &nbsp; 
+        <a href="about.html">About us</a> &nbsp; &nbsp; &nbsp; 
+        <a href="contactus.html">Contact</a>
+        
+    </nav>
+  <h1>My Cart</h1>
+ <!-- <li th:text="${cart}">
+   <c:if test="${empty cart}">
        <h2>There is no items in Cart</h2>
-       <a href="${pageContext.request.contextPath}/productList">Show
-           Product List</a>
-   </c:if>
+       <a href="userview.html">Show Product List</a>
+   </c:if> -->
  
 <div th:each="cart : ${sessionScope}" style="width: 33%;float: left;">
                <div class="product-preview-container">
@@ -28,13 +86,18 @@
 <li th:text="${cart.price}">${cart.code}</li>
 <li th:text="${cart.seller}">${cart.code}</li>
 <li th:text="${cart.desc}">${cart.desc}</li>
-<li th:text="${cart.quantity}">${cart.quantity}</li>
+<!-- <li th:text="${cart.quantity}">${cart.quantity}</li> -->
+<li><input type="text" name="quantity" th:value="*{cart.quantity}" /></li>
 <li th:text="${product.price * product.quantity}">${product.price * product.quantity}</li>
 </ul>
 </div>
- 
 </div>
- 
+ <input class="button-update-sc" type="submit" value="Update Quantity" />
+           <a class="navi-item"
+               href="${pageContext.request.contextPath}/shoppingCartCustomer">Enter
+               Customer Info</a>
+           <a class="navi-item" href="userview.html">Continue
+               Buy</a>
  
 </body>
 </html>
