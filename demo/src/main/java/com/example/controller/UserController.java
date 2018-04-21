@@ -57,7 +57,10 @@ public class UserController {
 			   cart.add(new Item(this.productService.find(productId), 1));
 			   //Iterator it= cart.iterator();
 			   //System.out.println(it.next());
-			   // session.setAttribute("cart", cart);
+			   session.setAttribute("cart", cart);
+			  /* Item i = cart.get(0);
+			   System.out.println(i.getProduct().getProductName());
+*/
 				 modelAndView.addObject("cart",cart);
 			  }
 		 else
