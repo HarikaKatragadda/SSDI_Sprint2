@@ -86,7 +86,6 @@ public class UserController {
 		 modelAndView.addObject("cart",cart);
 		 modelAndView.setViewName("/userpages/shoppingCart");
 		 return modelAndView;
-		 //return new ModelAndView("redirect:/userpages/shoppingCart");
 	}
 	
 	private int isExisting(int productId,HttpSession session ){
