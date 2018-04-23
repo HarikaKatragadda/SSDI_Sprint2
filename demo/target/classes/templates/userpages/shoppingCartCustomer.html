@@ -5,6 +5,36 @@
 <title>Insert title here</title>
 </head>
 <body>
+<html>
+<head>
+<meta charset="UTF-8">
+ 
+<title>Shopping Cart Confirmation</title>
+ 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css">
+ 
+</head>
+<body>
+ <div class="customer-info-container">
+      <h3>Customer Information:</h3>
+      <form th:action="@{/login}" method="POST" class="form-signin">
+      <ul>
+          <li><input type="text" name="name"  th:placeholder="Name"
+				class="form-control" /> </li>
+		  <li><input type="text"  name="email"  th:placeholder="Email"
+				class="form-control" /> </li> 
+      </ul>
+      <h3>Cart Summary:</h3>
+      <ul>
+          <li>Quantity: ${myCart.quantityTotal}</li>
+          <li>Total:
+          <span class="total">
+            <fmt:formatNumber value="${myCart.amountTotal}" type="currency"/>
+          </span></li>
+      </ul>
+      </form>
+  </div>
 
+ 
 </body>
 </html>

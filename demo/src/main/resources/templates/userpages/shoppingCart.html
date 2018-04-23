@@ -75,7 +75,8 @@ ul {
        <h2>There is no items in Cart</h2>
        <a href="userview.html">Show Product List</a>
    </c:if>  -->
-
+   
+<form th:action="@{/userpages/cartUpdate}" th:object="${session.cart}" method="post" role="form">
 <div th:each="cartproduct,itrStat : ${session.cart}" style="width: 33%;float: left;">
 <div class="product-preview-container">
 <ul>
@@ -87,7 +88,8 @@ th:src="${cartproduct.product.image}" /></li>
 <li th:text="${cartproduct.product.price}">${product.price}</li>
 <li th:text="${cartproduct.product.seller}">${product.seller}</li>
 <li th:text="${cartproduct.product.desc}">${product.desc}</li> 
-<li th:text="${cartproduct.quantity}">${product.desc}</li> 
+ <li th:text="${cartproduct.quantity}">${product.desc}</li>  
+  <!--<li> <input type="text" th:field="*{cartproduct.quantity}" placeholder="Quantity" /></li>--> 
 <li th:text="${cartproduct.product.price * cartproduct.quantity }">${product.desc}</li>   
 <li><a th:href="@{'/userpages/deleteCart?productId=' + ${cartproduct.product.productId}}">
                                Delete </a></li>
@@ -95,9 +97,12 @@ th:src="${cartproduct.product.image}" /></li>
 </ul>
 </div>
 </div>
-
+<br>
 <a href="userview.html">Continue Shopping</a>
-
+<input class="button-update-sc" type="submit" value="Update Quantity" />
+<a href="@{'/userpages/shoppingCartCustomer'}">Enter
+               Customer Info</a>
+</form>
 
 </body>
 </html>

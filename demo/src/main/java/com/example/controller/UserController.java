@@ -87,6 +87,28 @@ public class UserController {
 		 modelAndView.setViewName("/userpages/shoppingCart");
 		 return modelAndView;
 	}
+	@RequestMapping(value="/userpages/cartUpdate", method = RequestMethod.POST)
+	public ModelAndView cartUpdate(HttpServletRequest request,HttpSession session){
+		ModelAndView modelAndView = new ModelAndView();
+		int productId = Integer.parseInt(request.getParameter("productId"));
+		 List<Item> cart = (List<Item>)session.getAttribute("cart");
+		 String [] quantity = request.getParameterValues("quantity");
+		 for(int i=0;i < cart.size();i++){
+			 cart.get(i).setQuantity(Integer.parseInt(quantity[i]));
+		 }
+		 
+		 session.setAttribute("cart", cart);
+		 modelAndView.addObject("cart",cart);
+		 modelAndView.setViewName("/userpages/shoppingCart");
+		 return modelAndView;
+	}
+	
+	@RequestMapping(value="/userpages/shoppingCartCustomer", method = RequestMethod.GET)
+	public ModelAndView checkout(HttpServletRequest request,HttpSession session){
+		ModelAndView modelAndView = new ModelAndView();
+		 modelAndView.setViewName("/userpages/shoppingCartCustomer");
+		 return modelAndView;
+	}
 	
 	private int isExisting(int productId,HttpSession session ){
 		List<Item> cart = (List<Item>)session.getAttribute("cart");
