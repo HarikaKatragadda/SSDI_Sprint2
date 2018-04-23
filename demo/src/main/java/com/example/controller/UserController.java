@@ -55,12 +55,7 @@ public class UserController {
 		 if (session.getAttribute("cart") == null) {
 			   List<Item> cart = new ArrayList<Item>();
 			   cart.add(new Item(this.productService.find(productId), 1));
-			   //Iterator it= cart.iterator();
-			   //System.out.println(it.next());
 			   session.setAttribute("cart", cart);
-			  /* Item i = cart.get(0);
-			   System.out.println(i.getProduct().getProductName());
-*/
 				 modelAndView.addObject("cart",cart);
 			  }
 		 else
@@ -68,6 +63,7 @@ public class UserController {
 			 List<Item> cart = (List<Item>)session.getAttribute("cart");
 			 cart.add(new Item(this.productService.find(productId), 1));
 			   session.setAttribute("cart", cart);
+			   modelAndView.addObject("cart",cart);
 		 }
 
 		return modelAndView; 

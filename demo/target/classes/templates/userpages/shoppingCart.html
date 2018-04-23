@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
@@ -71,25 +70,30 @@ ul {
         
     </nav>
   <h1>My Cart</h1>
- <li th:text="${cart[0].product.productName}">
-<!--    <c:if test="${empty cart}">
+<!-- <li th:text="${(cart.product)}"></li>
+    <c:if test="${empty cart}">
        <h2>There is no items in Cart</h2>
        <a href="userview.html">Show Product List</a>
    </c:if>  -->
 
-<!--<div th:each="cartitem : ${cart}" style="width: 33%;float: left;">  -->
-<c:forEach var="it" items="${sessionScoped.cart}">
+<div th:each="cartproduct,itrStat : ${session.cart}" style="width: 33%;float: left;">
 <div class="product-preview-container">
 <ul>
+<li><img class="product-image"
+th:src="${cartproduct.product.image}" /></li>
                    
-<h3><li >{it.product.productName}</li></h3>
-<li >${it.product.code}</li>
+<h3><li th:text="${cartproduct.product.productName}">${product.productName}</li></h3>
+<li th:text="${cartproduct.product.code}">${product.code}</li>
+<li th:text="${cartproduct.product.price}">${product.price}</li>
+<li th:text="${cartproduct.product.seller}">${product.seller}</li>
+<li th:text="${cartproduct.product.desc}">${product.desc}</li>     
+
+
 </ul>
 </div>
-</c:forEach>
-<input class="button-update-sc" type="submit" value="Update Quantity" />
-<a class="navi-item" href="${pageContext.request.contextPath}/shoppingCartCustomer">Enter Customer Info</a>
-<a class="navi-item" href="userview.html">Continue Buy</a>
- 
+</div>
+
+
+
 </body>
 </html>
