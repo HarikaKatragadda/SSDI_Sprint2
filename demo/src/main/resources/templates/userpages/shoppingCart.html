@@ -89,7 +89,8 @@ th:src="${cartproduct.product.image}" /></li>
 <li th:text="${cartproduct.product.desc}">${product.desc}</li> 
 <li th:text="${cartproduct.quantity}">${product.desc}</li> 
 <li th:text="${cartproduct.product.price * cartproduct.quantity }">${product.desc}</li>   
-
+<li><a th:href="@{'/userpages/deleteCart?productId=' + ${cartproduct.product.productId}}">
+                               Delete </a></li>
 
 </ul>
 </div>

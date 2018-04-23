@@ -74,6 +74,21 @@ public class UserController {
 
 		return modelAndView; 
 	}
+	
+	@RequestMapping(value="/userpages/deleteCart", method = RequestMethod.GET)
+	public ModelAndView deleteCart(HttpServletRequest request,HttpSession session){
+		ModelAndView modelAndView = new ModelAndView();
+		int productId = Integer.parseInt(request.getParameter("productId"));
+		 List<Item> cart = (List<Item>)session.getAttribute("cart");
+		 int index = isExisting(productId,session);
+		 cart.remove(index);
+		 session.setAttribute("cart", cart);
+		 modelAndView.addObject("cart",cart);
+		 modelAndView.setViewName("/userpages/shoppingCart");
+		 return modelAndView;
+		 //return new ModelAndView("redirect:/userpages/shoppingCart");
+	}
+	
 	private int isExisting(int productId,HttpSession session ){
 		List<Item> cart = (List<Item>)session.getAttribute("cart");
 		for(int i=0;i < cart.size();i++)
