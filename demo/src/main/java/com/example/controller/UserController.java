@@ -61,12 +61,25 @@ public class UserController {
 		 else
 		 {
 			 List<Item> cart = (List<Item>)session.getAttribute("cart");
+			 int index = isExisting(productId,session);
+			 if(index==-1)
 			 cart.add(new Item(this.productService.find(productId), 1));
+			 else{
+				 int quantity = cart.get(index).getQuantity()+1;
+				 cart.get(index).setQuantity(quantity);
+			 }
 			   session.setAttribute("cart", cart);
 			   modelAndView.addObject("cart",cart);
 		 }
 
 		return modelAndView; 
 	}
-
+	private int isExisting(int productId,HttpSession session ){
+		List<Item> cart = (List<Item>)session.getAttribute("cart");
+		for(int i=0;i < cart.size();i++)
+			if(cart.get(i).getProduct().getProductId()== productId)
+			return i;
+		return -1;	
+		
+	}
 }

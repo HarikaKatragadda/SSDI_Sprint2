@@ -86,13 +86,16 @@ th:src="${cartproduct.product.image}" /></li>
 <li th:text="${cartproduct.product.code}">${product.code}</li>
 <li th:text="${cartproduct.product.price}">${product.price}</li>
 <li th:text="${cartproduct.product.seller}">${product.seller}</li>
-<li th:text="${cartproduct.product.desc}">${product.desc}</li>     
+<li th:text="${cartproduct.product.desc}">${product.desc}</li> 
+<li th:text="${cartproduct.quantity}">${product.desc}</li> 
+<li th:text="${cartproduct.product.price * cartproduct.quantity }">${product.desc}</li>   
 
 
 </ul>
 </div>
 </div>
 
+<a href="userview.html">Continue Shopping</a>
 
 
 </body>
