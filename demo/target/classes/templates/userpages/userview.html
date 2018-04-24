@@ -5,7 +5,7 @@
 <head>
 	<title>Starter Zone</title>
 	
-
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -15,16 +15,23 @@
 
 <style>
 .page-heading {
+
     text-align: center;
     margin-bottom: 20px;
 }
+
 .header {
+
     padding: 45px 0 20px 40px;
+
 }
+
 .menu {
     
     background: #3b7687;
     padding: 6px 0 6px 40px;
+
+
 }
 .product-preview-container {
     border: 1px solid #ccc;
@@ -64,12 +71,11 @@ ul {
     
     <nav class="menu">
         
-        <a href="userview.html">Home</a> &nbsp; &nbsp; &nbsp; 
-        <a href="about.html">About us</a> &nbsp; &nbsp; &nbsp; 
-        <a href="contactus.html">Contact</a>
+        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
+        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
+        <a th:href="@{'/userpages/contactus'}">Contact</a>
         
     </nav>
-   
 <h1>Product List</h1>
 <div th:each="product : ${listProducts}" style="width: 33%;float: left;">
 <div class="product-preview-container">
