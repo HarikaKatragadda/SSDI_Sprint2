@@ -41,7 +41,7 @@
        <a href="userview.html">Show Product List</a>
    </c:if>  -->
 <input class="button-update-sc" type="submit" value="Update Quantity" />
-<a href="@{'/userpages/shoppingCartCustomer'}">Enter
+<a th:href="@{'/userpages/shoppingCartCustomer'}" method="get" >Enter
                Customer Info</a>
                  
 <form autocomplete="off" action="#" th:action="@{/userpages/cartUpdate}" 
