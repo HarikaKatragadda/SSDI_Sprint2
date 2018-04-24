@@ -13,24 +13,24 @@
 
 </head>
 <body>
-    <div class="container">
+      <div class="container">
     <header class="header">
         
-       <a href="about.html">Starter Zone</a>
+       <a class="link-title" href="/">Starter Zone</a>
         
     </header>
     
     <nav class="menu">
         
-        <a href="userview.html">Home</a> &nbsp; &nbsp; &nbsp; 
-        <a href="about.html">About us</a> &nbsp; &nbsp; &nbsp; 
-        <a href="contactus.html">Contact</a>
+        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
+        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
+        <a th:href="@{'/userpages/contactus'}">Contact</a>
         
     </nav>
 <div class="menu-container">  
    <a href="userview.html">Product List</a>
    |
-   <a href="@{'/userpages/shoppingCart'}">
+   <a href="@{'/userpages/shoppingCart'}" >
       My Cart
    </a>
 </div>
@@ -40,9 +40,7 @@
        <h2>There is no items in Cart</h2>
        <a href="userview.html">Show Product List</a>
    </c:if>  -->
-<input class="button-update-sc" type="submit" value="Update Quantity" />
-<a th:href="@{'/userpages/shoppingCartCustomer'}" method="get" >Enter
-               Customer Info</a>
+
                  
 <form autocomplete="off" action="#" th:action="@{/userpages/cartUpdate}" 
 	th:object="${session.cart}" method="post" role="form">
@@ -67,6 +65,10 @@ th:src="${cartproduct.product.image}" /></li>
 </div>
 </div>
 <br>
+<div style="clear:both">
+  <div style="float:left; padding: 15px;"><input class="button-update-sc" type="submit" value="Update Quantity" /></div>
+  <div style="float:left; padding: 15px;"><a th:href="@{'/userpages/shoppingCartCustomer'}" method="get"> Enter Customer Info</a></div>
+</div>
 
 </form>
 

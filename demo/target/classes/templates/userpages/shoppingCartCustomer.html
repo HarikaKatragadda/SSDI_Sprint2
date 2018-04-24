@@ -2,19 +2,36 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Starter Zone</title>
 </head>
 <body>
 <html>
 <head>
-<meta charset="UTF-8">
- 
-<title>Shopping Cart Confirmation</title>
- 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css">
- 
+	<title>Starter Zone</title>
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 </head>
 <body>
+
+  <div class="container">
+    <header class="header">
+        
+       <a class="link-title" href="/">Starter Zone</a>
+        
+    </header>
+    
+    <nav class="menu">
+        
+        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
+        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
+        <a th:href="@{'/userpages/contactus'}">Contact</a>
+        
+    </nav>
  <div class="customer-info-container">
       <h3>Customer Information:</h3>
       <form th:action="@{/login}" method="POST" class="form-signin">
@@ -23,15 +40,7 @@
 				class="form-control" /> </li>
 		  <li><input type="text"  name="email"  th:placeholder="Email"
 				class="form-control" /> </li> 
-      </ul>
-      <h3>Cart Summary:</h3>
-      <ul>
-          <li>Quantity: ${myCart.quantityTotal}</li>
-          <li>Total:
-          <span class="total">
-            <fmt:formatNumber value="${myCart.amountTotal}" type="currency"/>
-          </span></li>
-      </ul>
+      </ul>     
       </form>
   </div>
 
