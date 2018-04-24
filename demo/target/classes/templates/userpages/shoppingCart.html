@@ -14,9 +14,9 @@
 </head>
 <body>
       <div class="container">
-    <header class="header">
+    <header class="w3-container">
         
-       <a class="link-title" href="/">Starter Zone</a>
+       <a class="link-title" href="/"><h1>Starter Zone</h1></a>
         
     </header>
     
@@ -34,7 +34,7 @@
       My Cart
    </a>
 </div>
-  <h1>My Cart</h1>
+  <h2>My Cart</h2>
 <!-- <li th:text="${(cart.product)}"></li>
     <c:if test="${empty cart}">
        <h2>There is no items in Cart</h2>
@@ -67,7 +67,7 @@ th:src="${cartproduct.product.image}" /></li>
 <br>
 <div style="clear:both">
   <div style="float:left; padding: 15px;"><input class="button-update-sc" type="submit" value="Update Quantity" /></div>
-  <div style="float:left; padding: 15px;"><a th:href="@{'/userpages/shoppingCartCustomer'}" method="get"> Enter Customer Info</a></div>
+  <div style="float:left; padding: 15px;"><a th:href="@{'/userpages/shoppingCartCustomer'}" method="GET"> Enter Customer Info</a></div>
 </div>
 
 </form>

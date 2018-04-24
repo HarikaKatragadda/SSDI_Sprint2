@@ -50,9 +50,18 @@ public class UserController {
 	@RequestMapping(value="/userpages/shoppingCart", method = RequestMethod.GET)
 	public ModelAndView myCart(HttpServletRequest request,HttpSession session){
 		ModelAndView modelAndView = new ModelAndView();
-		  //Product product = null;
+		if (request.getParameter("productId") == null) {
+			if (session.getAttribute("cart") == null) {
+				List<Item> cart = new ArrayList<Item>();
+				session.setAttribute("cart", cart);
+				modelAndView.addObject("cart", cart);
+			}
+			return modelAndView;
+		}
+		
 		int productId = Integer.parseInt(request.getParameter("productId"));
-		 if (session.getAttribute("cart") == null) {
+		 
+		if (session.getAttribute("cart") == null) {
 			   List<Item> cart = new ArrayList<Item>();
 			   cart.add(new Item(this.productService.find(productId), 1));
 			   session.setAttribute("cart", cart);
@@ -71,7 +80,7 @@ public class UserController {
 			   session.setAttribute("cart", cart);
 			   modelAndView.addObject("cart",cart);
 		 }
-
+		// modelAndView.setViewName("/userpages/shoppingCart");
 		return modelAndView; 
 	}
 	
@@ -104,6 +113,13 @@ public class UserController {
 	
 	@RequestMapping(value="/userpages/shoppingCartCustomer", method = RequestMethod.GET)
 	public ModelAndView checkout(HttpServletRequest request,HttpSession session){
+		ModelAndView modelAndView = new ModelAndView();
+		 modelAndView.setViewName("/userpages/shoppingCartCustomer");
+		 return modelAndView;
+	}
+	
+	@RequestMapping(value="/userpages/shoppingCartCustomer", method = RequestMethod.POST)
+	public ModelAndView custInfo(HttpServletRequest request,HttpSession session){
 		ModelAndView modelAndView = new ModelAndView();
 		 modelAndView.setViewName("/userpages/shoppingCartCustomer");
 		 return modelAndView;

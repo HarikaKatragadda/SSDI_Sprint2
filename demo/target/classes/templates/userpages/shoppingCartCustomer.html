@@ -19,9 +19,9 @@
 <body>
 
   <div class="container">
-    <header class="header">
+    <header class="w3-container">
         
-       <a class="link-title" href="/">Starter Zone</a>
+       <a class="link-title" href="/"><h1>Starter Zone</h1></a>
         
     </header>
     
@@ -34,7 +34,7 @@
     </nav>
  <div class="customer-info-container">
       <h3>Customer Information:</h3>
-      <form th:action="@{/login}" method="POST" class="form-signin">
+      <form th:action="@{/userpages/shoppingCartCustomer}" method="POST" class="form-signin">
       <ul>
           <li><input type="text" name="name"  th:placeholder="Name"
 				class="form-control" /> </li>

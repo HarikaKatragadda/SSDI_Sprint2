@@ -4,8 +4,9 @@
 
 <head>
 	<title>Starter Zone</title>
-	
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/coin-slider.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,14 +15,10 @@
 </head>
 <body>
 
-<!-- <div id="header"></div>
-<script>
-	    $("#header").load('header.htm');
-</script> -->
     <div class="container">
-    <header class="header">
+    <header class="w3-container">
         
-       <a class="link-title" href="/">Starter Zone</a>
+       <a class="link-title" href="/"><h1>Starter Zone</h1></a>
         
     </header>
     
@@ -32,6 +29,10 @@
         <a th:href="@{'/userpages/contactus'}">Contact</a>
         
     </nav>
+    <div class="slider">
+        <div id="coin-slider"> <a href="#"><img th:src="@{/images/login.jpg}" width="960" height="360" alt="" /></a> </div>
+        <div class="clr"></div>
+    </div>
 <div class="menu-container">  
    <a href="userview.html">Product List</a>
    |
@@ -39,7 +40,7 @@
       My Cart
    </a>
 </div>  
-<h1>Product List</h1>
+<h2>Product List</h2>
 <div th:each="product : ${listProducts}" style="width: 33%;float: left;">
 <div class="product-preview-container">
 <ul>
