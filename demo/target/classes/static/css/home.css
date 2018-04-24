@@ -30,7 +30,7 @@ body {
 .container {
     width:780px;
     margin: 0 auto;
-    background: #FFF;
+    background: #F5FFFA;
     box-shadow: 0px 9px 13px 5px;
 
 
@@ -44,7 +44,7 @@ body {
 
 .menu {
     
-    background: #3b7687;
+    background: #1E90FF;
     padding: 6px 0 6px 40px;
 
 
@@ -56,7 +56,7 @@ body {
     color: #c5d6db;
     text-decoration: none;
     font-size: 14px;
-    font-family: "Arial Narrow", "Myriad Pro";
+    font-family: "Goudy Bookletter 1911", sans-serif;
 }
 
 .menu a:hover {
@@ -280,4 +280,8 @@ ul {
   height: auto;
   padding: 10px;
 }
-
+  input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+  }

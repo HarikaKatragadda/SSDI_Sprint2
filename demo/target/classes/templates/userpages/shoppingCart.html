@@ -19,14 +19,15 @@
        <a class="link-title" href="/"><h1>Starter Zone</h1></a>
         
     </header>
-    
-    <nav class="menu">
-        
-        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
-        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
-        <a th:href="@{'/userpages/contactus'}">Contact</a>
-        
-    </nav>
+   <nav class="navbar navbar-dark" style="background-color: #3CB371;">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+        <li ><a th:href="@{'/userpages/userview'}">Home</a></li> 
+        <li class="active"><a  th:href="@{'/userpages/about'}">About us</a></li> 
+        <li><a th:href="@{'/userpages/contactus'}">Contact</a></li>
+        </ul>
+       </div> 
+   </nav>
 <div class="menu-container">  
    <a href="userview.html">Product List</a>
    |
@@ -35,12 +36,6 @@
    </a>
 </div>
   <h2>My Cart</h2>
-<!-- <li th:text="${(cart.product)}"></li>
-    <c:if test="${empty cart}">
-       <h2>There is no items in Cart</h2>
-       <a href="userview.html">Show Product List</a>
-   </c:if>  -->
-
                  
 <form autocomplete="off" action="#" th:action="@{/userpages/cartUpdate}" 
 	th:object="${session.cart}" method="post" role="form">
@@ -55,9 +50,9 @@ th:src="${cartproduct.product.image}" /></li>
 <li th:text="${cartproduct.product.price}">${product.price}</li>
 <li th:text="${cartproduct.product.seller}">${product.seller}</li>
 <li th:text="${cartproduct.product.desc}">${product.desc}</li> 
-<li> <input type="text"  th:value="${cartproduct.quantity}" name="quantity" placeholder="Quantity" class="form-control" /></li>
+<li> QTY: <input type="text"  th:value="${cartproduct.quantity}" name="quantity" placeholder="Quantity" class="form-control" /></li>
 
-<li th:text="${cartproduct.product.price * cartproduct.quantity }">${product.desc}</li>   
+<p>Price:<li th:text="${cartproduct.product.price * cartproduct.quantity }">${product.desc}</li></p>   
 <li><a th:href="@{'/userpages/deleteCart?productId=' + ${cartproduct.product.productId}}">
                                Delete </a></li>
 
@@ -66,7 +61,7 @@ th:src="${cartproduct.product.image}" /></li>
 </div>
 <br>
 <div style="clear:both">
-  <div style="float:left; padding: 15px;"><input class="button-update-sc" type="submit" value="Update Quantity" /></div>
+  <div style="float:left; padding: 15px;"><input class="btn btn-primary btn-block" type="submit" value="Update Quantity" /></div>
   <div style="float:left; padding: 15px;"><a th:href="@{'/userpages/shoppingCartCustomer'}" method="GET"> Enter Customer Info</a></div>
 </div>
 

@@ -8,11 +8,17 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/coin-slider.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" th:src="@{/css/coin-slider.min.js}"></script>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 </head>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#coin-slider').coinslider();
+  });
+</script>
 <body>
 
     <div class="container">
@@ -22,17 +28,23 @@
         
     </header>
     
-    <nav class="menu">
-        
-        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
-        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
-        <a th:href="@{'/userpages/contactus'}">Contact</a>
-        
-    </nav>
+   <nav class="navbar navbar-dark" style="background-color: #3CB371;">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+        <li class="active"><a th:href="@{'/userpages/userview'}">Home</a></li> 
+        <li><a  th:href="@{'/userpages/about'}">About us</a></li> 
+        <li><a th:href="@{'/userpages/contactus'}">Contact</a></li>
+        </ul>
+       </div> 
+   </nav>
+    
     <div class="slider">
-        <div id="coin-slider"> <a href="#"><img th:src="@{/images/login.jpg}" width="960" height="360" alt="" /></a> </div>
+        <div id="coin-slider"> 
+        <a href="#"><img th:src="@{/images/10.jpg}" width="960" height="300" alt="" /></a> 
+        </div>
         <div class="clr"></div>
     </div>
+<hr style="height:30px">   
 <div class="menu-container">  
    <a href="userview.html">Product List</a>
    |

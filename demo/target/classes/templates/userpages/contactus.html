@@ -18,15 +18,16 @@
         
     </header>
     
-    <nav class="menu">
-        
-        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
-        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
-        <a th:href="@{'/userpages/contactus'}">Contact</a>
-        
-    </nav>
-<div id="form">
-          
+  <nav class="navbar navbar-dark" style="background-color: #3CB371;">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+        <li ><a th:href="@{'/userpages/userview'}">Home</a></li> 
+        <li ><a  th:href="@{'/userpages/about'}">About us</a></li> 
+        <li class="active"><a th:href="@{'/userpages/contactus'}">Contact</a></li>
+        </ul>
+       </div> 
+   </nav>
+<div id="form">       
           <form method="post" action="process.php">
               <br>
               <h2>Details</h2>
@@ -43,30 +44,18 @@
               </p>
               
               <label for="name">Subject:</label>
-              <input type="text" name="subject" required>
-              
-              
-                  
+              <input type="text" name="subject" required>     
             <p> 
             <label for="message"></label>
             <textarea id="message" name="body" id="" cols="30" rows="10" required></textarea>
-              </p> 
-              
+              </p>               
               <p>
                   <input id="submit" type="submit" name="submit" value="Send Message">
               </p>
-              
-              
-              
-              
-          </form>
-           
-           
-           
-           
-           
-           
-           
+<br>
+<br>
+<br>             
+          </form>        
         </div>    
        </div>
 </body>

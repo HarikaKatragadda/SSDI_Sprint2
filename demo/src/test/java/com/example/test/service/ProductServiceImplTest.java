@@ -65,6 +65,16 @@ public class ProductServiceImplTest {
 		productService.addProduct(p1);
 	}
 	@Test
+	public void testFind()
+	{		
+		new Expectations(){{
+			productRepository.findByproductId(1);
+	
+		}};
+		
+		productService.find(1);
+	}
+	@Test
 	public void testlistProducts()
 	{		
 		p1 = mock(Product.class);

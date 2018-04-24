@@ -18,18 +18,22 @@
         
     </header>
     
-    <nav class="menu">
-        
-        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
-        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
-        <a th:href="@{'/userpages/contactus'}">Contact</a>
-        
-    </nav>
+   <nav class="navbar navbar-dark" style="background-color: #3CB371;">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+        <li ><a th:href="@{'/userpages/userview'}">Home</a></li> 
+        <li class="active"><a  th:href="@{'/userpages/about'}">About us</a></li> 
+        <li><a th:href="@{'/userpages/contactus'}">Contact</a></li>
+        </ul>
+       </div> 
+   </nav>
      
 <h1>Starter Zone: New Products from Today's Startups</h1>
 <img th:src="@{/images/1.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" />
 <p>Starter Zone is the place to discover new, unique and unexpected products from today’s brightest startups. We curate innovative products that are hard to find in the market, showcasing an ever-expanding collection of fresh new products from popular crowdfunding platforms, incubators and startups. Explore the stories of the inventors and entrepreneurs that brought these ideas to life, then buy with the all confidence you expect from StarterZone. </p>
-
+<br>
+<br>
+<br>
 </div>
 </body>
 </html>

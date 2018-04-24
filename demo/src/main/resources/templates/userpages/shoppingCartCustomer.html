@@ -25,22 +25,45 @@
         
     </header>
     
-    <nav class="menu">
-        
-        <a th:href="@{'/userpages/userview'}">Home</a> &nbsp; &nbsp; &nbsp; 
-        <a  th:href="@{'/userpages/about'}">About us</a> &nbsp; &nbsp; &nbsp; 
-        <a th:href="@{'/userpages/contactus'}">Contact</a>
-        
-    </nav>
+   <nav class="navbar navbar-dark" style="background-color: #3CB371;">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+        <li><a th:href="@{'/userpages/userview'}">Home</a></li> 
+        <li><a  th:href="@{'/userpages/about'}">About us</a></li> 
+        <li><a th:href="@{'/userpages/contactus'}">Contact</a></li>
+        </ul>
+       </div> 
+   </nav>
  <div class="customer-info-container">
       <h3>Customer Information:</h3>
       <form th:action="@{/userpages/shoppingCartCustomer}" method="POST" class="form-signin">
-      <ul>
-          <li><input type="text" name="name"  th:placeholder="Name"
-				class="form-control" /> </li>
-		  <li><input type="text"  name="email"  th:placeholder="Email"
-				class="form-control" /> </li> 
-      </ul>     
+      <ul style="list-style-type: none">
+          <li>
+          <input style="float:left;width:45%" type="text" name="First name" placeholder="First name">
+          <input style="float:right;width:45%"type="text" name="Last name" placeholder="Last name"></li>
+          <br>
+          <br>
+          <br>
+          <li><input style="float:left;width:100%" type="text" name="Address" placeholder="Address"></li>
+          <br>
+          <br>
+          <br>
+          <li><input style="float:left;width:100%" type="text" name="Email" placeholder="Email"></li>
+          <br>
+          <br>
+          <br>
+          <li><input style="float:left;width:100%" type="text" name="Phone" placeholder="Phone"></li>
+          <br>
+          <br>
+          <br>
+        </ul> 
+        <input id="submit" type="submit" name="submit" value="Continue for Payment">
+         <br>
+          <br>
+          <br>
+           <br>
+          <br>
+          <br> 
       </form>
   </div>
 
