@@ -27,13 +27,23 @@
         <a href="contactus.html">Contact</a>
         
     </nav>
+<div class="menu-container">  
+   <a href="userview.html">Product List</a>
+   |
+   <a href="@{'/userpages/shoppingCart'}">
+      My Cart
+   </a>
+</div>
   <h1>My Cart</h1>
 <!-- <li th:text="${(cart.product)}"></li>
     <c:if test="${empty cart}">
        <h2>There is no items in Cart</h2>
        <a href="userview.html">Show Product List</a>
    </c:if>  -->
-   
+<input class="button-update-sc" type="submit" value="Update Quantity" />
+<a href="@{'/userpages/shoppingCartCustomer'}">Enter
+               Customer Info</a>
+                 
 <form autocomplete="off" action="#" th:action="@{/userpages/cartUpdate}" 
 	th:object="${session.cart}" method="post" role="form">
 <div th:each="cartproduct,itrStat : ${session.cart}" style="width: 33%;float: left;">
@@ -57,10 +67,7 @@ th:src="${cartproduct.product.image}" /></li>
 </div>
 </div>
 <br>
-<a href="userview.html">Continue Shopping</a>
-<input class="button-update-sc" type="submit" value="Update Quantity" />
-<a href="@{'/userpages/shoppingCartCustomer'}">Enter
-               Customer Info</a>
+
 </form>
 
 </body>
