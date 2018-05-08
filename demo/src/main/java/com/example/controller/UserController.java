@@ -118,10 +118,25 @@ public class UserController {
 		 return modelAndView;
 	}
 	
-	@RequestMapping(value="/userpages/shoppingCartCustomer", method = RequestMethod.POST)
-	public ModelAndView custInfo(HttpServletRequest request,HttpSession session){
+	@RequestMapping(value="/userpages/paymentform", method = RequestMethod.GET)
+	public ModelAndView payment(HttpServletRequest request,HttpSession session){
 		ModelAndView modelAndView = new ModelAndView();
-		 modelAndView.setViewName("/userpages/shoppingCartCustomer");
+		 List<Item> cart = (List<Item>)session.getAttribute("cart");
+		 modelAndView.setViewName("/userpages/paymentform");
+		 return modelAndView;
+	}
+	
+	@RequestMapping(value="/userpages/shoppingCartCustomer", method = RequestMethod.POST)
+	public ModelAndView saveOrder(HttpServletRequest request,HttpSession session){
+		ModelAndView modelAndView = new ModelAndView();
+		 List<Item> cart = (List<Item>)session.getAttribute("cart");
+		 String firstName = request.getParameter("firstName");
+		 String lastName = request.getParameter("lastName");
+		 String address = request.getParameter("address");
+		 String email = request.getParameter("email");
+		 String phone = request.getParameter("phone");
+		 modelAndView.addObject("cart",cart);
+		 modelAndView.setViewName("/userpages/paymentform");
 		 return modelAndView;
 	}
 	

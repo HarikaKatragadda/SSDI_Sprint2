@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +27,7 @@ import mockit.integration.junit4.JMockit;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.mockito.Mockito.mock;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -57,6 +59,8 @@ public class UserControllerTest {
 		
 		assertEquals("/userpages/userview", mv.getViewName());
     }
+    
+    
    @Test
    	public void testabout(){
    		ModelAndView mv = userController.about();

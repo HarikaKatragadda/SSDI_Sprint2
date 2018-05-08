@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Starter Zone</title>
+</head>
+<body>
+<html>
+<head>
+	<title>Starter Zone</title>
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/card.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+    <header class="w3-container">
+        
+       <a class="link-title" href="/"><h1>Starter Zone</h1></a>
+        
+    </header>
+    
+   <nav class="navbar navbar-dark" style="background-color: #3CB371;">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav">
+        <li class="active"><a th:href="@{'/userpages/userview'}">Home</a></li> 
+        <li><a  th:href="@{'/userpages/about'}">About us</a></li> 
+        <li><a th:href="@{'/userpages/contactus'}">Contact</a></li>
+        </ul>
+       </div> 
+   </nav>
+    
+<!--     <div class="slider">
+        <div id="coin-slider"> 
+        <a href="#"><img th:src="@{/images/10.jpg}" width="960" height="300" alt="" /></a> 
+        </div>
+        <div class="clr"></div>
+    </div> -->
+<hr style="height:30px">   
+<div class="menu-container">  
+   <a href="userview.html">Product List</a>
+   |
+   <a th:href="@{'/userpages/shoppingCart'}" method="get">
+      My Cart
+   </a>
+</div>
+<div class="creditCardForm">
+    <div class="heading">
+        <h1>Confirm Purchase</h1>
+    </div>
+    <div class="payment">
+        <form>
+            <div class="form-group owner">
+                <label for="owner">Owner</label>
+                <input type="text" class="form-control" id="owner">
+            </div>
+            <div class="form-group CVV">
+                <label for="cvv">CVV</label>
+                <input type="text" class="form-control" id="cvv">
+            </div>
+            <div class="form-group" id="card-number-field">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber">
+            </div>
+            <div class="form-group" id="expiration-date">
+                <label>Expiration Date</label>
+                <select>
+                    <option value="01">January</option>
+                    <option value="02">February </option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <select>
+                    <option value="16"> 2016</option>
+                    <option value="17"> 2017</option>
+                    <option value="18"> 2018</option>
+                    <option value="19"> 2019</option>
+                    <option value="20"> 2020</option>
+                    <option value="21"> 2021</option>
+                </select>
+            </div>
+            <div class="form-group" id="credit_cards">
+<!--                 <img src="assets/images/visa.jpg" id="visa">
+                <img src="assets/images/mastercard.jpg" id="mastercard">
+                <img src="assets/images/amex.jpg" id="amex"> -->
+            </div>
+            <div class="form-group" id="pay-now">
+                <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+ 
+</body>
+</html>

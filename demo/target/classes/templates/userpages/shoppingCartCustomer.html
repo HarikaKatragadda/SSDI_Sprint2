@@ -34,30 +34,38 @@
         </ul>
        </div> 
    </nav>
+   <div class="menu-container">  
+   <a href="userview.html">Product List</a>
+   |
+    <a th:href="@{'/userpages/shoppingCart'}" method="get">
+      My Cart
+   </a>
+</div>
  <div class="customer-info-container">
       <h3>Customer Information:</h3>
       <form th:action="@{/userpages/shoppingCartCustomer}" method="POST" class="form-signin">
       <ul style="list-style-type: none">
           <li>
-          <input style="float:left;width:45%" type="text" name="First name" placeholder="First name">
-          <input style="float:right;width:45%"type="text" name="Last name" placeholder="Last name"></li>
+          <input style="float:left;width:45%" type="text" name="firstName" placeholder="First name">
+          <input style="float:right;width:45%"type="text" name="lastName" placeholder="Last name"></li>
           <br>
           <br>
           <br>
-          <li><input style="float:left;width:100%" type="text" name="Address" placeholder="Address"></li>
+          <li><input style="float:left;width:100%" type="text" name="address" placeholder="Address"></li>
           <br>
           <br>
           <br>
-          <li><input style="float:left;width:100%" type="text" name="Email" placeholder="Email"></li>
+          <li><input style="float:left;width:100%" type="text" name="email" placeholder="Email"></li>
           <br>
           <br>
           <br>
-          <li><input style="float:left;width:100%" type="text" name="Phone" placeholder="Phone"></li>
+          <li><input style="float:left;width:100%" type="text" name="phone" placeholder="Phone"></li>
           <br>
           <br>
           <br>
         </ul> 
         <input id="submit" type="submit" name="submit" value="Continue for Payment">
+       			
          <br>
           <br>
           <br>
