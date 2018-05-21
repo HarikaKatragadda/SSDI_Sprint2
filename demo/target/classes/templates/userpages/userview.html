@@ -66,7 +66,7 @@ th:src="${product.image}" /></li>
 <li th:text="${product.desc}">${product.desc}</li>
 
 <!--  Needs to be modified  -->
-<li><a th:href="@{'/userpages/shoppingCart?productId=' + ${product.productId}}">Buy Now</a></li>
+<li><a th:href="@{'/userpages/shoppingCart?productId=' + ${product.productId}}">Add to cart</a></li>
 </ul>
 </div>
 </div>
